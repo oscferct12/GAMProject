@@ -61,7 +61,7 @@ const tools = [
   },
   {
     id: id++,
-    title: `Jenkis`,
+    title: `Jenkins`,
     image: `https://upload.wikimedia.org/wikipedia/commons/e/e9/Jenkins_logo.svg`
 
   },
