@@ -120,8 +120,8 @@ class Dashboard extends React.Component {
           <Col xs={12} sm={12} md={4}>
             <Card>
               <CardHeader>
-                <CardTitle>Email Statistics</CardTitle>
-                <p className="card-category">Last Campaign Performance</p>
+                <CardTitle>Application creation statistics</CardTitle>
+                <p className="card-category">Last month</p>
               </CardHeader>
               <CardBody>
                 <Pie
@@ -131,27 +131,27 @@ class Dashboard extends React.Component {
               </CardBody>
               <CardFooter>
                 <div className="legend">
-                  <i className="fa fa-circle text-primary" /> Opened{" "}
-                  <i className="fa fa-circle text-warning" /> Read{" "}
-                  <i className="fa fa-circle text-danger" /> Deleted{" "}
-                  <i className="fa fa-circle text-gray" /> Unopened
+                  <i className="fa fa-circle text-primary" /> Jira{" "}
+                  <i className="fa fa-circle text-warning" /> Bitbucket{" "}
+                  <i className="fa fa-circle text-danger" /> Jenkins{" "}
+                  <i className="fa fa-circle text-gray" /> Tembo
                 </div>
-                <hr />
-                <Stats>
+                {/*<hr />
+                 <Stats>
                   {[
                     {
                       i: "fas fa-calendar-alt",
-                      t: " Number of emails sent"
+                      t: "Number of projects created"
                     }
                   ]}
-                </Stats>
+                </Stats> */}
               </CardFooter>
             </Card>
           </Col>
           <Col xs={12} sm={12} md={8}>
             <Card className="card-chart">
               <CardHeader>
-                <CardTitle>NASDAQ: AAPL</CardTitle>
+                <CardTitle>Trend of users application</CardTitle>
                 <p className="card-category">Line Chart With Points</p>
               </CardHeader>
               <CardBody>
@@ -164,10 +164,10 @@ class Dashboard extends React.Component {
               </CardBody>
               <CardFooter>
                 <div className="chart-legend">
-                  <i className="fa fa-circle text-info" /> Tesla Model S{" "}
-                  <i className="fa fa-circle text-warning" /> BMW 5 Series
+                  <i className="fa fa-circle text-info" /> Bitbucket{" "}
+                  <i className="fa fa-circle text-warning" /> Jira
                 </div>
-                <hr />
+                {/* <hr />
                 <Stats>
                   {[
                     {
@@ -175,7 +175,7 @@ class Dashboard extends React.Component {
                       t: " Data information certified"
                     }
                   ]}
-                </Stats>
+                </Stats> */}
               </CardFooter>
             </Card>
           </Col>
