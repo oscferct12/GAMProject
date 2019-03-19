@@ -1,4 +1,5 @@
 import React from "react";
+import Router from 'next/router'
 import {
   Card,
   CardHeader,
@@ -13,24 +14,56 @@ import { Line, Pie } from "react-chartjs-2";
 // function that returns a color based on an interval of numbers
 
 import Stats from "components/Stats/Stats.jsx";
+import MyVerticallyCenteredModal from "components/Modal/Modal.jsx";
 import tools from "variables/tools";
 import img from "logo.png";
+import Button from 'react-bootstrap/Button'
+
+import Overdrive from 'react-overdrive';
+
+// import { Route } from 'react-router-dom';
 
 import {
   dashboard24HoursPerformanceChart,
   dashboardEmailStatisticsChart,
   dashboardNASDAQChart
 } from "variables/charts.jsx";
+import { debug } from "util";
 
 class Dashboard extends React.Component {
+  static getInitialProps() {
+    return {
+      photos: new Array(30).fill(0).map((v, k) => k + 1)
+    }
+  }
+
+  state = { modalShow: false };
+
+  constructor(props) {
+    super(props);
+    this.cont = 0;
+    // this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  // buttonClick(event){
+  //   debugger;
+  //   event.preventDefault()
+  //   let modalClose = () => this.setState({ modalShow: true });
+  // }
+
   render() {
+
+    let modalClose = () => this.setState({ modalShow: false });
+    let result = this.state;
+    
     return (
       <div className="content">
         <Row>
           {tools.map((prop, key) => {
+            
             return (
               <Col xs={12} sm={6} md={6} lg={3} key={key}>
-                <Card className="card-stats" style={{ height: 160 }}>
+                <Card className="card-stats" style={{ height: 160 }} onClick={(event) => {event.preventDefault(); this.setState({ modalShow: true })}}>
                   <CardBody>
                     <Row>
                       <Col xs={5} md={4}>
@@ -48,7 +81,7 @@ class Dashboard extends React.Component {
                   <CardFooter>
                     <hr />
                   </CardFooter>
-                </Card>
+                </Card> 
               </Col>
             );
           })}
@@ -82,6 +115,7 @@ class Dashboard extends React.Component {
             </Card>
           </Col>
         </Row>
+        <MyVerticallyCenteredModal show={this.state.modalShow} onHide={modalClose}/>
         <Row>
           <Col xs={12} sm={12} md={4}>
             <Card>
