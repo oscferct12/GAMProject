@@ -17,11 +17,6 @@ import Stats from "components/Stats/Stats.jsx";
 import MyVerticallyCenteredModal from "components/Modal/Modal.jsx";
 import tools from "variables/tools";
 import img from "logo.png";
-import Button from 'react-bootstrap/Button'
-
-import Overdrive from 'react-overdrive';
-
-// import { Route } from 'react-router-dom';
 
 import {
   dashboard24HoursPerformanceChart,
@@ -37,33 +32,28 @@ class Dashboard extends React.Component {
     }
   }
 
-  state = { modalShow: false };
+  state = {
+    modalShow: false,
+    tool: '',
+    icon: ''
+  };
 
   constructor(props) {
     super(props);
-    this.cont = 0;
-    // this.onKeyDown = this.onKeyDown.bind(this);
   }
-
-  // buttonClick(event){
-  //   debugger;
-  //   event.preventDefault()
-  //   let modalClose = () => this.setState({ modalShow: true });
-  // }
 
   render() {
 
     let modalClose = () => this.setState({ modalShow: false });
-    let result = this.state;
-    
+
     return (
       <div className="content">
         <Row>
           {tools.map((prop, key) => {
-            
+
             return (
-              <Col xs={12} sm={6} md={6} lg={3} key={key}>
-                <Card className="card-stats" style={{ height: 160 }} onClick={(event) => {event.preventDefault(); this.setState({ modalShow: true })}}>
+              <Col xs={12} sm={6} md={6} lg={3} key={key} >
+                <Card className="card-stats" style={{ height: 160 }} onClick={(event) => { event.preventDefault(); this.setState({ modalShow: true, tool: prop.title, icon: prop.image }) }}>
                   <CardBody>
                     <Row>
                       <Col xs={5} md={4}>
@@ -81,7 +71,7 @@ class Dashboard extends React.Component {
                   <CardFooter>
                     <hr />
                   </CardFooter>
-                </Card> 
+                </Card>
               </Col>
             );
           })}
@@ -115,7 +105,7 @@ class Dashboard extends React.Component {
             </Card>
           </Col>
         </Row>
-        <MyVerticallyCenteredModal show={this.state.modalShow} onHide={modalClose}/>
+        <MyVerticallyCenteredModal show={this.state.modalShow} onHide={modalClose} properties={this.state} tool={this.state.tool} icon={this.state.icon} />
         <Row>
           <Col xs={12} sm={12} md={4}>
             <Card>

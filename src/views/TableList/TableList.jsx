@@ -19,7 +19,7 @@ class RegularTables extends React.Component {
           <Col xs={12}>
             <Card>
               <CardHeader>
-                <CardTitle tag="h4">Simple Table</CardTitle>
+                <CardTitle tag="h4">Servers / Instances</CardTitle>
               </CardHeader>
               <CardBody>
                 <Table responsive>
@@ -28,7 +28,7 @@ class RegularTables extends React.Component {
                       {thead.map((prop, key) => {
                         if (key === thead.length - 1)
                           return (
-                            <th key={key} className="text-right">
+                            <th key={key} className="text-left">
                               {prop}
                             </th>
                           );
@@ -39,11 +39,11 @@ class RegularTables extends React.Component {
                   <tbody>
                     {tbody.map((prop, key) => {
                       return (
-                        <tr key={key}>
+                        <tr key={key} className="">
                           {prop.data.map((prop, key) => {
                             if (key === thead.length - 1)
                               return (
-                                <td key={key} className="text-right">
+                                <td key={key} className="text-left">
                                   {prop}
                                 </td>
                               );
@@ -57,48 +57,7 @@ class RegularTables extends React.Component {
               </CardBody>
             </Card>
           </Col>
-          <Col xs={12}>
-            <Card className="card-plain">
-              <CardHeader>
-                <CardTitle tag="h4">Table on Plain Background</CardTitle>
-                <p className="card-category"> Here is a subtitle for this table</p>
-              </CardHeader>
-              <CardBody>
-                <Table responsive>
-                  <thead className="text-primary">
-                    <tr>
-                      {thead.map((prop, key) => {
-                        if (key === thead.length - 1)
-                          return (
-                            <th key={key} className="text-right">
-                              {prop}
-                            </th>
-                          );
-                        return <th key={key}>{prop}</th>;
-                      })}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {tbody.map((prop, key) => {
-                      return (
-                        <tr key={key}>
-                          {prop.data.map((prop, key) => {
-                            if (key === thead.length - 1)
-                              return (
-                                <td key={key} className="text-right">
-                                  {prop}
-                                </td>
-                              );
-                            return <td key={key}>{prop}</td>;
-                          })}
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </Table>
-              </CardBody>
-            </Card>
-          </Col>
+{/* /* the project table  */}
         </Row>
       </div>
     );
